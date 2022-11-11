@@ -2,19 +2,19 @@ CREATE DATABASE tccTenis;
 use tccTenis;
 
 create table tb_departamento (
-    id_deparmento       int primary key auto_increment,
-    nm_departamento     varchar(200);
+    id_departamento       int primary key auto_increment,
+    nm_departamento       varchar(200)
 );
 
 
 create table tb_produto (
-    id_produto      int primary key auto_increment,
-    id_deparmento   int,
-    nm_produto      varchar(200),
-    vl_preco        decimal(10, 2),
-    dt_criacao      detatime,
-    bt_destaque     boolean,
-    foreign key (id_departamento) references tb_departamento (id_departamento) 
+    id_produto          int primary key auto_increment,
+    id_departamento     int,
+    nm_produto          varchar(200),
+    vl_preco            decimal(10, 2),
+    dt_criacao          datetime,
+    bt_destaque         boolean,
+    foreign key (id_departamento ) references tb_departamento (id_departamento ) 
 );
 
 
@@ -109,8 +109,8 @@ create table tb_pedido_item (
     id_produto          int,
     qtd_itens           int,
     vl_preco            decimal(15, 2),
-    foreign key (id_pedido) references tb_pedido (id_pedido),
-    foreign key (id_pedido_item) references tb_pedido_item (id_pedido_item)
+    foreign key (id_pedido) references tb_pedido (id_pedido)
+  
 );
 
 

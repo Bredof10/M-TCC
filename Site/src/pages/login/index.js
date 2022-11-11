@@ -1,46 +1,63 @@
-import './index.scss';
+import './index.scss'
+
+import { useState } from 'react'
+import { logar } from '../../api/loginClienteAPI';
+import { toast } from 'react-toastify';
+
+import Storage from 'local-storage'
+import { useNavigate } from 'react-router-dom';
+
+export default function Login() {
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    const navigate = useNavigate();
+
+    async function logarCliente() {
+        try {
+            const r = await logar(email, senha);
+            Storage('cliente-logado', r);
+            toast.dark('Usuário logado', { autoClose: 400, hideProgressBar: true });
+
+            setTimeout(() => {
+                navigate('/');
+            }, 1500);
+            
+        }
+        catch (err) {
+            toast.error(err.response.data.erro);
+        }
+    }
 
 
-export default function Index() {
-    return(
-        <main className='pagina-home'>
-               <div class="container-mae">
+    return (
+        <div className='pagina-cli-login'>
+            <h1> Login Cliente </h1>
 
-<header class="faixa-header">
-    
-    <h2 class="texto-logo">Somente <br></br>Administrador</h2>
-</header>
+            <div className='form-container'>
 
-<section class="faixa-principal">
+                <div className='form'>
 
-    <div class="texto-login">
-        <h1>
-            Login
-        </h1>
-    </div>    
+                    <div>
+                        <label> E-mail: </label>
+                        <input type='text' placeholder="Ex.: cliente@devmonk.com.br" value={email} onChange={e => setEmail(e.target.value)} />
+                    </div>
 
-<section class="faixa">
+                    <div>
+                        <label> Senha: </label>
+                        <input type='password' placeholder="***" value={senha} onChange={e => setSenha(e.target.value)}  />
+                    </div>
 
-       
+                    <div className='btn-right'>
+                        <label></label>
+                        <button onClick={logarCliente}> Logar </button>
+                    </div>
 
-    <div>
-        <div class="email">
+                    <div></div>
 
-            <input class="input-email" type="text" name="nome" placeholder="Digite seu email" autofocus />
+                </div>
+
+            </div>
         </div>
-
-        <div class="senha">
-            <input class="input-senha" type="password" name="senha" placeholder="Digite sua senha" />
-        </div>
-
-        <div class="botoes">
-            <a href="" class="botao-entrar"> Entrar </a>
-        </div>
-    </div>
-</section>
-</section>
-</div>
-        </main>
     )
 }
-

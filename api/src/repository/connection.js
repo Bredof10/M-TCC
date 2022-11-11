@@ -32,7 +32,7 @@ async function createCon() {
 }
 
 await createCon();
-console.log('BD conectado!');
+console.log('BD Conectado!');
 
 
 export { con }

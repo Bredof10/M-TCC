@@ -2,9 +2,10 @@ CREATE DATABASE tccTenis;
 use tccTenis;
 
 
-insert into tb_usuario (nm_usuario, ds_email, ds_senha)
-	          values ('andre', 'dede@gmail.com', '1234');
-    
+insert into tb_login_usuario ( ds_email, ds_senha)
+	          values ('adm@.com','1234');
+ 
+
 
 select id_usuario		id,
 	   nm_usuario		nome,
@@ -32,7 +33,7 @@ SELECT id_cupom          id,
 
 UPDATE tb_cupom
    SET qtd_restante = qtd_restante - 1
- WHERE id_cupom = ?
+ WHERE id_cupom = ?;
 
 
  INSERT INTO tb_pedido (

@@ -1,6 +1,6 @@
 import {con} from './connection';
 
-export async function Login(email, senha) {
+export async function ogin(email, senha) {
     const comando =
      ` select id_administrador	  id,
               ds_email		        email
