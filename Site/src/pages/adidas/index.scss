@@ -19,13 +19,19 @@
     .text {
         display: flex;
         align-items: center;
+        height: 90PX;
+        
     }
 
-    .nike {
-        width: 900px;
-        height: 350px;
-        padding: 0px 190px;
+  
+    .adidas{
+        width: 700px;
+        height: 200px;
+        padding-left: 330px;
+        
     }
+
+
 
     .venda {
         display: flex;
@@ -51,16 +57,14 @@
         padding: 0px 5px;
     }
 
-    #linha-horizontal {
-        width: 310px;
-        border: 1px solid #fff;
-        }
+  
 
         #tn {
             width: 250px;
-            height:280px;
+            height:250px;
             background: white;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
             
             
             }
