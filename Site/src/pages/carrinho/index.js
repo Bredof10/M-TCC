@@ -4,18 +4,18 @@ import { useEffect, useState } from 'react'
 import Storage from 'local-storage'
 import { buscarProdutoPorId } from '../../api/produtoAPI';
 import CarrinhoItem from '../../components/carrinhoItem';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function Carrinho() {
     const [itens, setItens] = useState([]);
 
+    
 
     const navigate = useNavigate();
 
     function irPedido() {
         navigate('/pedido')
     }
-
 
 
     function qtdItens() {
@@ -65,35 +65,61 @@ export default function Carrinho() {
     }, [])
 
 
+
+
     return (
-        <div className='pagina-carrinho'>
+       
+        <main className='pagina-carrinho'>
+        <nav className='menu'>
+        <div className='carrinho'>
+        <h1> Carrinho </h1>
+        </div>
+        </nav>
+       
+        <div  className='venda'>
 
-            <h1> Carrinho </h1>
-
-            <div className='carrinho'>
-
-                <div className='itens'>
-
-                    {itens.map(item => 
-                        <CarrinhoItem
-                            item={item}
-                            removerItem={removerItem}
-                            carregarCarrinho={carregarCarrinho} />
-                    )}
-
-                </div>
-
+        <div id="tn">
+                <img className='lixeira' src='/images/lixeira.png' alt='' />
+                <img className='png' src='/images/Nike-T2.png'  height='90px'/>
+                <p className='text'>TÊNIS NIKE AIR VAPORMAX PLUS RUN UTILITY</p>
+                <p className='preco'>R$ 1.499,99 ou 12x de R$ 125,00</p>
+                <button onClick={irPedido}> Realizar Pedido </button>
                 
-                <div className='resumo'>
-                    <h1> Subtotal </h1>
-                    <h3> ({qtdItens()} itens) </h3>
-                    <p> R$ {calcularValorTotal()} </p>
-                    <button onClick={irPedido}> Fechar Pedido </button>
-                </div>
+            </div>
 
+            <div id="tn">
+                <img className='lixeira' src='/images/lixeira.png' alt=''/>
+                <img className='png' src='/images/Nike-T2.png'  height='90px'/>
+                <p className='text'>TÊNIS NIKE AIR VAPORMAX PLUS RUN UTILITY</p>
+                <p className='preco'>R$ 1.499,99 ou 12x de R$ 125,00</p>
+                <button onClick={irPedido}>  Realizar Pedido </button>
+                
+            </div>
 
+            <div id="tn">
+                <img className='lixeira' src='/images/lixeira.png' alt=''/>
+                <img className='png' src='/images/Nike-T2.png'  height='90px'/>
+                <p className='text'>TÊNIS NIKE AIR VAPORMAX PLUS RUN UTILITY</p>
+                <p className='preco'>R$ 1.499,99 ou 12x de R$ 125,00</p>
+                <button onClick={irPedido}> Realizar Pedido </button>
+                
             </div>
 
         </div>
+
+        <div className='itens'>
+
+{itens.map(item => 
+    <CarrinhoItem
+        item={item}
+        removerItem={removerItem}
+        carregarCarrinho={carregarCarrinho} />
+         )}
+</div>
+
+
+
+
+    </main>
     )
 }
