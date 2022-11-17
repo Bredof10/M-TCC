@@ -4,7 +4,7 @@ import Home from './pages/home';
 import Adidas from './pages/adidas';
 import Nike from './pages/nike';
 import Puma from './pages/puma';
-import NewBalance from './pages/newbalance/index';
+import NewBalance from './pages/newBalance/index';
 import Reebok from './pages/reebok';
 import Perfil from './pages/perfil';
 
