@@ -82,8 +82,7 @@ export default function ProdutoDetalhe() {
                     
                     <button onClick={adicionarAoCarrinho}> Adicionar ao Carrinho </button>
                 </div>
-                
             </div>
         </div>
-    )
+    );
 }

@@ -22,8 +22,8 @@ export default function Home() {
 
 
     async function carregarPagina() {
-        const r = await buscarProdutoPorId(id);
-        setProduto(r);
+        const v = await buscarProdutoPorId(id);
+        setProduto(v);
     }
 
     function exibirImagemPrincipal() {
@@ -69,8 +69,8 @@ export default function Home() {
     }
 
     async function listar() {
-        const r = await listarProdutosInicio();
-        setProdutos(r);
+        const v = await listarProdutosInicio();
+        setProdutos(v);
     }
 
 
